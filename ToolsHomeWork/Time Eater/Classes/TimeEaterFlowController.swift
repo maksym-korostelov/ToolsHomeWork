@@ -10,6 +10,7 @@ import UIKit
 
 
 class TimeEaterFlowController: UIViewController {
+    private let queue = OperationQueue()
 
     @IBOutlet private var table: UITableView!
     var files = [String]()
@@ -34,9 +35,15 @@ class TimeEaterFlowController: UIViewController {
             table.reloadData()
         }
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        MemoryCache.shared.clear()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        MemoryCache.shared.clear()
     }
     
     @IBAction func didTapCloseButton(sender: Any) {
@@ -49,17 +56,26 @@ extension TimeEaterFlowController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return files.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "ImageCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! ImageCell
+        
+        cell.display(image: nil)
         
         let file = files[indexPath.row]
         if let path = Bundle.main.path(forResource: file, ofType: ""){
-            let img = UIImage(contentsOfFile: path)
-            cell.imageView?.image = img
-            if let loadedImg = img {
-                MemoryCache.shared.set(loadedImg, forKey: path)
+            let op = LoadImageOperation(path: path)
+            op.completionBlock = {
+                DispatchQueue.main.async {
+                    guard let cell = tableView.cellForRow(at: indexPath) as? ImageCell
+                      else { return }
+
+                    cell.isLoading = false
+                    cell.display(image: op.image)
+                }
             }
+            
+            queue.addOperation(op)
         }
         
         if let iv = cell.imageView {

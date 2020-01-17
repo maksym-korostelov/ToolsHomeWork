@@ -28,6 +28,9 @@
 		6B7B1A2A21613B5E009F4389 /* Time.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B7B1A2621613B5E009F4389 /* Time.storyboard */; };
 		6B7B1A2B21613B5E009F4389 /* TimeEaterFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7B1A2821613B5E009F4389 /* TimeEaterFlowController.swift */; };
 		6B7B1A2C21613B5E009F4389 /* TimeEaterChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7B1A2921613B5E009F4389 /* TimeEaterChildViewController.swift */; };
+		A0A59DC823D1ABB400419CA9 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A59DC723D1ABB400419CA9 /* ImageCell.swift */; };
+		A0A59DCA23D1B01E00419CA9 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A59DC923D1B01E00419CA9 /* AsyncOperation.swift */; };
+		A0A59DCC23D1B4D900419CA9 /* LoadImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A59DCB23D1B4D900419CA9 /* LoadImageOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,9 @@
 		6B7B1A2621613B5E009F4389 /* Time.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Time.storyboard; sourceTree = "<group>"; };
 		6B7B1A2821613B5E009F4389 /* TimeEaterFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeEaterFlowController.swift; sourceTree = "<group>"; };
 		6B7B1A2921613B5E009F4389 /* TimeEaterChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeEaterChildViewController.swift; sourceTree = "<group>"; };
+		A0A59DC723D1ABB400419CA9 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		A0A59DC923D1B01E00419CA9 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
+		A0A59DCB23D1B4D900419CA9 /* LoadImageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImageOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,8 @@
 				6B7B1A0121613A74009F4389 /* LaunchScreen.storyboard */,
 				6B7B1A0421613A74009F4389 /* Info.plist */,
 				6B7B1A0A21613AAB009F4389 /* Cache.swift */,
+				A0A59DC923D1B01E00419CA9 /* AsyncOperation.swift */,
+				A0A59DCB23D1B4D900419CA9 /* LoadImageOperation.swift */,
 			);
 			path = ToolsHomeWork;
 			sourceTree = "<group>";
@@ -132,6 +140,7 @@
 			children = (
 				6B7B1A2821613B5E009F4389 /* TimeEaterFlowController.swift */,
 				6B7B1A2921613B5E009F4389 /* TimeEaterChildViewController.swift */,
+				A0A59DC723D1ABB400419CA9 /* ImageCell.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -225,6 +234,9 @@
 				6B7B19FB21613A72009F4389 /* ViewController.swift in Sources */,
 				6B7B1A0B21613AAB009F4389 /* Cache.swift in Sources */,
 				6B7B19F921613A72009F4389 /* AppDelegate.swift in Sources */,
+				A0A59DC823D1ABB400419CA9 /* ImageCell.swift in Sources */,
+				A0A59DCA23D1B01E00419CA9 /* AsyncOperation.swift in Sources */,
+				A0A59DCC23D1B4D900419CA9 /* LoadImageOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +383,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S4N6SYM9VW;
 				INFOPLIST_FILE = ToolsHomeWork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -388,6 +401,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S4N6SYM9VW;
 				INFOPLIST_FILE = ToolsHomeWork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
