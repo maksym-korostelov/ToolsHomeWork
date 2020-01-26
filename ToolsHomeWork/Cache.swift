@@ -12,6 +12,9 @@ import  UIKit
 class MemoryCache {
     
     private static let _shared = MemoryCache()
+    private let internalQueue = DispatchQueue(label: "com.singletioninternal.queue",
+                                                 qos: .default,
+                                                 attributes: .concurrent)
     
     var images = [String:UIImage]()
     
@@ -31,10 +34,14 @@ extension MemoryCache {
     }
     
     func set(_ image: UIImage, forKey key: String) {
-        images[key] = image
+        internalQueue.async(flags: .barrier) {
+            self.images[key] = image
+        }
     }
     
     func image(forKey key: String) -> UIImage? {
-        return images[key]
+        return internalQueue.sync {
+            images[key]
+        }
     }
 }
