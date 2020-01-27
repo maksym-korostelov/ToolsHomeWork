@@ -13,6 +13,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // first remove all url cache from previous versions of app
+        URLCache.shared.removeAllCachedResponses()
+
+
+        // As we do not want to cache any request response so
+        // updated shared instance of url cache with custom url cache where
+        // memoryCapacity = 0, diskCapacity = 0 and diskPath = nil
+        URLCache.shared = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
+        return true
+    }
 
     func applicationDidFinishLaunching(_ application: UIApplication) {
         

@@ -20,6 +20,7 @@ class ImageCell: UITableViewCell {
           activityIndicator.startAnimating()
         } else {
           activityIndicator.stopAnimating()
+          activityIndicator.isHidden = true
         }
       }
     }
